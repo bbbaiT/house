@@ -1,0 +1,4 @@
+status/
+model/upload.py
+api/upload.py
+*/__pycache__
