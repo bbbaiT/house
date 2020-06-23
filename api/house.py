@@ -86,7 +86,7 @@ class HouseInfo(Resource):
         house_list = House.objects.all()[(page-1)*size: page*size]
         data = [house.to_json() for house in house_list]
 
-        cache.set('houses:{}-{}'.format(page, size), house_list)
+        cache.set('houses:{}-{}'.format(page, size), data)
         return Ans(0, data=data, count=House.objects.count())
 
 

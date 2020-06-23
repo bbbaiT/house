@@ -32,7 +32,7 @@ class MerchantInfo(Resource):
             logo=req.get('logo', None),
             htype=req.get('htype', 0),
             service=req.get('service', 0),
-            status=req.get('status', 1),
+            status=req.get('status', ),
 
             contacts=req.get('contacts', user.name),
             phone=req.get('phone', user.phone),
@@ -170,5 +170,5 @@ class MerchantHouse(Resource):
 
         data = [house.to_json() for house in house_list]
 
-        cache.set('merchant_house:{}-{}'.format(page, size), [house.to_json() for house in house_list])
+        cache.set('merchant_house:{}-{}'.format(page, size), data)
         return Ans(0, data=data)
